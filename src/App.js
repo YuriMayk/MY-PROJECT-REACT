@@ -1,26 +1,26 @@
 import React from "react";
-import { Container, H1 } from "./styles";
+import { Container,Image, H1, Paragraph, Input, Button, ContainerSmaller } from "./styles";
 
 const App = () => {
   return (
-    <div>
-      <img></img>
-      <div>
-    <h1>Olá!</h1>
+    <Container>
+      <Image></Image>
+      <ContainerSmaller>
+    <H1>Olá!</H1>
 
-    <p>
+    <Paragraph>
       Nome
-    </p>
-    <input placeholder="Seu nome"></input>
+    </Paragraph>
+    <Input placeholder="Seu nome"></Input>
 
-    <p>
+    <Paragraph>
       Idade
-    </p>
-    <input placeholder="Sua idade"></input>
+    </Paragraph>
+    <Input placeholder="Sua idade"></Input>
 
-    <button>Cadastrar</button>
-      </div>
-    </div>
+    <Button>Cadastrar</Button>
+      </ContainerSmaller>
+    </Container>
   );
 };
 
