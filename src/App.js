@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import axios from "axios";
+
 import {
   Container,
   Image,
@@ -18,8 +20,15 @@ const App = () => {
   const InputName = useRef();
   const InputAge = useRef();
 
-  function addNewUser() {
-    setUsers([
+ async function addNewUser() {
+    const data = await axios.post("http://localhost:3001/users", {
+      name: InputName.current.value,
+      age: InputAge.current.value,
+    });
+
+    console.log(data)
+
+    /* setUsers([
       ...users,
       {
         id: Math.random(),
@@ -27,13 +36,13 @@ const App = () => {
         age: InputAge.current.value,
       },
     ]);
-    console.log(InputName.current.value, InputAge.current.value);
+    console.log(InputName.current.value, InputAge.current.value); */
   }
 
   function deleteUser(UserId) {
-    const newUsers = users.filter(user => user.id !== UserId)
+    const newUsers = users.filter((user) => user.id !== UserId);
 
-    setUsers(newUsers)
+    setUsers(newUsers);
   }
 
   return (
