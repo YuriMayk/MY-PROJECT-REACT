@@ -17,7 +17,6 @@ const App = () => {
   const [users, setUsers] = useState([]);
   const InputName = useRef();
   const InputAge = useRef();
-  
 
   function addNewUser() {
     setUsers([
@@ -29,6 +28,12 @@ const App = () => {
       },
     ]);
     console.log(InputName.current.value, InputAge.current.value);
+  }
+
+  function deleteUser(UserId) {
+    const newUsers = users.filter(user => user.id !== UserId)
+
+    setUsers(newUsers)
   }
 
   return (
@@ -50,7 +55,7 @@ const App = () => {
           {users.map((user) => (
             <User key={user.id}>
               <p>{user.name}</p> - <p>{user.age}</p>{" "}
-              <button onClick={deleteUser}>
+              <button onClick={() => deleteUser(user.id)}>
                 <img alt="trash" src={Trash} />
               </button>
             </User>
