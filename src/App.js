@@ -21,12 +21,12 @@ const App = () => {
   const InputAge = useRef();
 
  async function addNewUser() {
-    const data = await axios.post("http://localhost:3001/users", {
+    const {data: newUser} = await axios.post("http://localhost:3001/users", {
       name: InputName.current.value,
       age: InputAge.current.value,
     });
 
-    console.log(data)
+    console.log(newUser)
 
     /* setUsers([
       ...users,
